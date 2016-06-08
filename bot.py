@@ -1,6 +1,8 @@
 import socket
 import string
 import sqlite3
+from threading import Thread
+import time
 
 #------------------------------------------------SQLite------------------------------------------------#
 
@@ -47,6 +49,11 @@ s.send(bytes("JOIN " + CHAN + " \r\n", "UTF-8"))
 
 #------------------------------------------------Functions------------------------------------------------#
 
+def keepAwake():
+	while(True):
+		send_message("Wir haben auch Twitter: https://twitter.com/GMHZ_official")
+		time.sleep(600)
+
 def fillSQL(user, firstBet, secondBet): # for the bets (CS:GO Bets)
 	sql_command = """
 	INSERT INTO Teilnehmer (twitchUser, betFirst, betSecond) VALUES (\""""+user+"\",\""+firstBet+"\",\"" +secondBet+"\")"
@@ -75,7 +82,8 @@ def findTheWinner(firstBet, secondBet): # finds the Winner from the bet time
 #------------------------------------------------Here begins the action------------------------------------------------#
 
 send_message("/slow 3") # slows the chat speed down
-
+t = Thread(target=keepAwake, args=())
+t.start()
 while True: 
 	line = str(s.recv(1024)) 
 	if "End of /NAMES list" in line: 
