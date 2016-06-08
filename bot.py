@@ -51,7 +51,7 @@ s.send(bytes("JOIN " + CHAN + " \r\n", "UTF-8"))
 
 def keepAwake():
 	while(True):
-		send_message("Wir haben auch Twitter: https://twitter.com/GMHZ_official")
+		send_message("") # Some Text here 
 		time.sleep(600)
 
 def fillSQL(user, firstBet, secondBet): # for the bets (CS:GO Bets)
