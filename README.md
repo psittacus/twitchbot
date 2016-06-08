@@ -12,4 +12,4 @@ There is are a few Methods.
 * *!findTheWinner* and the SQLite Database is asked for a winner.
 If you have some questions ask me on twitter:
 
-twitter.com/__psittacus__
+https://twitter.com/__psittacus__
